@@ -40,6 +40,7 @@ int main() {
               low = mid + 1;
           }
       }
+      //Output
       result.push_back(low);
   }
   for (int i = 0; i < result.size(); i++) {
