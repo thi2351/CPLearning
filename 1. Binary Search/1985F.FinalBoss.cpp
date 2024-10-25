@@ -1,4 +1,4 @@
-//Problem: 1985F.Final Boss
+//Problem: 1985F. Final Boss
 //Platform: Codeforce
 //Difficulty: 1500
 
