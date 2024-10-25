@@ -1,6 +1,6 @@
-//
-//
-//
+//Problem: 1985F.Final Boss
+//Platform: Codeforce
+//Difficulty: 1500
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -36,7 +36,6 @@ int main() {
             long long total_dmg = 0;
 
             for (int i = 0; i < n; i++) {
-                // Kiểm tra overflow trước khi cộng
                 if (mid / cd[i] > 0) {
                     long long damage = (mid / cd[i]) * dmg[i];
                     if (total_dmg + damage >= h) { 
@@ -68,3 +67,5 @@ int main() {
 
     return 0;
 }
+//Tip: Xử lý tràn số bằng cách ngắt khi cần thiết
+//Tip: Xử lý tràn số bằng cách dùng long long
