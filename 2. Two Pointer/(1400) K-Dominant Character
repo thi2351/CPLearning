@@ -1,0 +1,57 @@
+//
+//
+//Difficulty: 1400
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+template <typename K, typename V>
+void printUnorderedMap(const std::unordered_map<K, V>& map) {
+    for (const auto& pair : map) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+}
+
+bool StringSearch(int target, const string& s) {
+    int left = 0;
+    int right = target - 1;
+    unordered_map<char, int> appearance;
+    
+    // Khởi tạo `appearance` với cửa sổ đầu tiên
+    for (int i = left; i <= right; i++) {
+        appearance[s[i]]++;
+    }
+    
+    for (right = target; right < s.size(); ++right) {
+        if (appearance.find(s[right]) != appearance.end()) {
+            appearance[s[right]]++;
+        }
+        appearance[s[left]]--;
+        if (appearance[s[left]] <= 0) {
+            appearance.erase(s[left]);
+        }
+        left++;
+    }
+    return !appearance.empty();
+}
+
+int main() {
+    string s;
+    cin >> s;
+    int low = 1;
+    int high = s.size();
+    int mid = 0;
+    
+    while (low < high) {
+        mid = low + (high - low) / 2;
+        if (StringSearch(mid, s)) {
+            high = mid;
+        } else {
+            low = mid + 1;
+        }
+    }
+    
+    cout << low << endl;
+    return 0;
+}
